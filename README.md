@@ -34,7 +34,7 @@ The BERT model was taken and modified from [kanekomasahiro/bert-gec](https://git
 Change working directory to `bert-gec/scripts` and perform the following steps:
 
 1. Run `setup.sh`.
-2. Run `get_model.py` to download bert-base-cased model.(Note: we added a script to load the pretrained BERT model from huggingface instead of from the `setup.sh` script as the original links are broken.)
+2. Run `get_model.py` to download bert-base-cased model. (Note: we added a script to load the pretrained BERT model from huggingface instead of from the `setup.sh` script as the original links are broken.)
 
 ### Training
 
