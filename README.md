@@ -55,14 +55,20 @@ The system combination method is adapted from [nusnlp/esc](https://github.com/nu
 ### Requirements
 Refer [here](https://github.com/nusnlp/esc#installation) for instructions on installation and requirements.
 
+### Training
+Run `export EXP_DIR=my-bea-exp` and `export EXP_DIR=my-conll-exp` for the BEA-2019 and CoNLL-2014 experiments respectively.
+1. Run the training by running `python run.py --train --data_dir $EXP_DIR/dev-text --m2_dir $EXP_DIR/dev-m2 --model_path $EXP_DIR/models --vocab_path $EXP_DIR/vocab.idx`.
+
+
+
+
 ### Preparation
 
-1. Create a new experiment directory under `esc-main` and go inside it.
+1. Create a new g directory under `esc-main` and go inside it.
 2. Create a `dev-text` folder and put the base model's output on the dev data into the folder, along with the corresponding `source.txt` and `target.txt`.
 3. Create a `test-text` folder and put the base model's output on the test data into the folder, along with the corresponding `source.txt` and `target.txt`.
 4. Create a `models` and a `output` folder.
 
 The output that we generated for both BART and BERT models are included in the `data/output` folder 
 
-### Training
 
