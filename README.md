@@ -24,7 +24,9 @@ The training data we use is in data/train and the development data we use is in 
 ### Data Translation
 
 Generate the output for the BEA-2019 and CoNLL-2014 test data by running `translate.sh [input] [output_dir] [gpu] [model_dir]`.
+
 The test data we use is in data/test.
+
 The output generated from our trained BART model is included in the `data` folder (in data/output/dev-output/bart-dev.txt for development data, in data/output/test-output/bart-bea19-output.txt for BEA-2019 test data and in data/output/test-output/bart-conll-output.txt for CoNLL-2014 test data.
 
 
