@@ -6,7 +6,7 @@ The BART model was taken and modified from [Katsumata420/generic-pretrained-GEC/
 
 ### Preparation
 
-Change working directory to `BART-GEC` perform the following steps:
+Change working directory to `BART-GEC` and perform the following steps:
 
 1. Download pretrained BART model (`bart.large.tar.gz`) and related files (`encoder.json`, `vocab.bpe` and `dict.txt`).
     - `bart.large.tar.gz`: [url](https://dl.fbaipublicfiles.com/fairseq/models/bart.large.tar.gz)
@@ -25,16 +25,19 @@ Fine-tune the BART model with binarized data by running `train.sh`.
 Generate the output for the BEA-2019 and CoNLL-2014 test data by running `translate.sh [input] [output_dir] [gpu] [model_dir]`. The output generated from our trained BART model is included in the `data` folder.
 
 
-## BERT
+## BERT-fuse GED
 
 The BERT model was taken and modified from [kanekomasahiro/bert-gec](https://github.com/kanekomasahiro/bert-gec)
 
+### Requirements
+python >= 3.5, torch == 1.1.0, [bert-nmt](https://github.com/bert-nmt/bert-nmt), [subword](https://github.com/rsennrich/subword-nmt), [gec-pseudodata](https://github.com/butsugiri/gec-pseudodata)
+
 ### Preparation
 
-Change working directory to `bert-gec/scripts` perform the following steps:
+Change working directory to `bert-gec/scripts` and perform the following steps:
 
 1. Run `setup.sh`.
-2. Run `get_model.py` to download bert-base-cased model.
+2. Run `get_model.py` to download bert-base-cased model. (Note: we added a script to load the pretrained BERT model from huggingface instead of from the `setup.sh` script as the original links are broken.)
 
 ### Training
 
@@ -45,7 +48,7 @@ Fine-tune the BERT model by running `train.sh`.
 Generate the output for the BEA-2019 and CoNLL-2014 test data by running `generate.sh [input] [output_dir] [gpu]`. The output generated from our trained BERT model is included in the `data` folder.
 
 
-## System Combination
+## System Combination (ESC)
 
 The system combination method was taken and modified from [nusnlp/esc](https://github.com/nusnlp/esc)
 
