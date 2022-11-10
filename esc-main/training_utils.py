@@ -7,7 +7,7 @@ class LRScheduler():
     by given `factor`.
     """
     def __init__(
-        self, optimizer, patience=10, min_lr=1e-5, factor=0.98
+        self, optimizer, patience=10, min_lr=1e-5, factor=1
     ):
         """
         new_lr = old_lr * factor

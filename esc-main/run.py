@@ -231,8 +231,8 @@ class Model(nn.Module):
 
         return x
 
-def train(model, train_dataset, batch_size, lr, weight_decay, num_epoch, device,
-            model_path=None, eval_dataset=None, save_last=False, verbose=False):
+def train(model, train_dataset, batch_size, lr, weight_decay, min_delta, lr_decay, num_epoch, 
+            device, model_path=None, eval_dataset=None, save_last=False, verbose=False):
     """
     Train the model and save the best checkpoint
     """
@@ -240,8 +240,8 @@ def train(model, train_dataset, batch_size, lr, weight_decay, num_epoch, device,
 
     criterion = nn.BCELoss()
     optimizer = optim.SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
-    scheduler = LRScheduler(optimizer, factor=0.98)
-    early_stopping = EarlyStopping(min_delta=0.01)
+    scheduler = LRScheduler(optimizer, factor=lr_decay)
+    early_stopping = EarlyStopping(min_delta)
 
     start = datetime.datetime.now()
     metric = 'f0.5'
@@ -492,8 +492,8 @@ def main(args):
                                 filter_idx=test_index,
                                 )
 
-        _score, best_epoch = train(model, train_dataset, _BATCH_SIZE, _LR, args.weight_decay, _EPOCH,
-                device, eval_dataset=eval_dataset)
+        _score, best_epoch = train(model, train_dataset, _BATCH_SIZE, _LR, args.weight_decay, args.early_stop, 
+                args.lr_decay, _EPOCH, device, eval_dataset=eval_dataset)
         # full training
         torch.manual_seed(args.seed)
         print('Best checkpoint at epoch {}. Training on full dataset.'.format(best_epoch))
@@ -507,8 +507,8 @@ def main(args):
                                 )
         feature_size = train_dataset.feature_size()
         model = Model(feature_size).to(device)
-        train(model, train_dataset, _BATCH_SIZE, _LR, args.weight_decay, best_epoch,
-                device, model_path, save_last=True)
+        train(model, train_dataset, _BATCH_SIZE, _LR, args.weight_decay, args.early_stop, args.lr_decay,
+                best_epoch, device, model_path, save_last=True)
         print('Finished training.')
     elif args.test:
         with open(args.vocab_path, 'r', encoding='utf-8') as f:
@@ -545,6 +545,8 @@ def get_arguments():
     parser.add_argument('--vocab_path', default='vocab.idx', help='path to the vocab file')
     parser.add_argument('--model_path', required=True, help='path to the model directory')
     parser.add_argument('--output_path', default='out.txt', help='path to the output file during testing')
+    parser.add_argument('--early_stop', type=float, default=0, help='minimum delta for early stopping during training')
+    parser.add_argument('--lr_decay', type=float, default=1, help='gamma decay for learning rate')
     return parser.parse_args()
 
 if __name__ == "__main__":
