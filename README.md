@@ -55,24 +55,17 @@ The system combination method is adapted from [nusnlp/esc](https://github.com/nu
 ### Requirements
 Refer [here](https://github.com/nusnlp/esc#installation) for instructions on installation and requirements.
 
-### Reproducing the paper's result
-For the BEA-2019 experiment, the my-bea-exp folder contains the trained model file in the models folder and the output in outputs/test.out.
-Get the F0.5 score for BEA-2019 by submitting the output file in a zip to CodaLab.
-
-For the CoNLL-2014 experiment, the my-conll-exp folder contains the trained model file in the models folder and the output in outputs/test.out.
-Get the F0.5 score for CoNLL-2014 using M2 scorer with the output file.
-
 ### Reproducing our results
-For the BEA-2019 experiment, the my-bea-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].txt.
+For the BEA-2019 experiment, the my-bea-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].out.
 Get the F0.5 score for BEA-2019 by submitting the desired output file in a zip to CodaLab.
 
-For the CoNLL-2014 experiment, the my-conll-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].txt.
+For the CoNLL-2014 experiment, the my-conll-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].out.
 Get the F0.5 score for CoNLL-2014 using M2 scorer with the desired output file.
 
 #### Models and outputs included:
-* base5_bart_conll.pt and base5_bart_conll.txt: Model and output for ESC trained on the 5 base models included and BART
-* base5_bart_pytorchLR_conll.pt base5_bart_pytorchLR_conll.txt: Model and output for ESC trained on the 5 base models included and BART, along with PyTorch's learning rate decay with gamma=0.98
-* base5_bart_selfimplementedLR_conll.pt and base5_bart_selfimplementedLR_conll.txt: Model and output for ESC trained on the 5 base models included and BART, along with our own learning rate decay and early stop implementation
+* base5_bart_conll.pt and base5_bart_conll.out: Model and output for ESC trained on the 5 base models included and BART
+* base5_bart_pytorchLR_conll.pt base5_bart_pytorchLR_conll.out: Model and output for ESC trained on the 5 base models included and BART, along with PyTorch's learning rate decay with gamma=0.98
+* base5_bart_selfimplementedLR_conll.pt and base5_bart_selfimplementedLR_conll.out: Model and output for ESC trained on the 5 base models included and BART, along with our own learning rate decay and early stop implementation
 
 ### Retraining the experiments in the paper
 Run `export EXP_DIR=my-bea-exp` and `export EXP_DIR=my-conll-exp` for the BEA-2019 and CoNLL-2014 experiments respectively.
