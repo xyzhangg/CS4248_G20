@@ -52,4 +52,11 @@ The system combination method was taken and modified from [nusnlp/esc](https://g
 ### Preparation
 
 1. Create a new experiment directory under `esc-main` and go inside it.
-2. 
+2. Create a `dev-text` folder and put the base model's output on the dev data into the folder, along with the corresponding `source.txt` and `target.txt`.
+3. Create a `test-text` folder and put the base model's output on the test data into the folder, along with the corresponding `source.txt` and `target.txt`.
+4. Create a `models` and a `output` folder.
+
+The output that we generated for both BART and BERT models are included in the `data/output` folder 
+
+### Training
+

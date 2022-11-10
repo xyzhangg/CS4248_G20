@@ -14,6 +14,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 
+from training_utils import EarlyStopping, LRScheduler
+
 from file_utils import read_data
 
 
@@ -225,10 +227,9 @@ class Model(nn.Module):
 
     def forward(self, x):
         x = self.linear(x)
-        x = F.sigmoid(x)
+        x = torch.sigmoid(x)
 
         return x
-
 
 def train(model, train_dataset, batch_size, lr, weight_decay, num_epoch, device,
             model_path=None, eval_dataset=None, save_last=False, verbose=False):
@@ -239,6 +240,8 @@ def train(model, train_dataset, batch_size, lr, weight_decay, num_epoch, device,
 
     criterion = nn.BCELoss()
     optimizer = optim.SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
+    scheduler = LRScheduler(optimizer, factor=0.98)
+    early_stopping = EarlyStopping(min_delta=0.01)
 
     start = datetime.datetime.now()
     metric = 'f0.5'
@@ -275,8 +278,9 @@ def train(model, train_dataset, batch_size, lr, weight_decay, num_epoch, device,
                 print('[%d, %3d] loss: %.3f' %
                     (epoch + 1, step + 1, running_loss / 100))
                 running_loss = 0.0
+        scheduler(running_loss)
         if eval_dataset is not None:
-            result = eval(model, eval_dataset, device)
+            result = eval(model, eval_dataset, criterion, device)
             if metric in result:
                 score = result[metric]
                 if verbose:
@@ -295,6 +299,8 @@ def train(model, train_dataset, batch_size, lr, weight_decay, num_epoch, device,
             else:
                 if verbose:
                     print('No accuracy found. No model will be saved.')
+            early_stopping(result['loss'])
+
     end = datetime.datetime.now()
     if save_last:
         checkpoint = {
@@ -310,7 +316,7 @@ def train(model, train_dataset, batch_size, lr, weight_decay, num_epoch, device,
     return best_score, best_epoch
 
 
-def eval(model, dataset, device='cpu'):
+def eval(model, dataset, criterion, device='cpu'):
     """
     Evaluation function to get an estimated F0.5 score to save
     the best checkpoint during training.
@@ -324,6 +330,7 @@ def eval(model, dataset, device='cpu'):
         p = 0
         true_edits = 0
         total_data = 0
+        running_loss = 0.0
         result = {
             'preds': []
         }
@@ -342,6 +349,8 @@ def eval(model, dataset, device='cpu'):
                 true_edits += torch.sum(labels)
                 tp += torch.sum((preds > 0) & (labels > 0))
                 tn += torch.sum((preds == 0) & (labels == 0))
+                loss = criterion(outputs, labels)
+                running_loss += loss.item()
                 # print('preds: {}\nlabels: {}\ntp: {}\n'.format(preds, labels, (preds == labels)))
                 # print(torch.sum(preds), torch.sum(labels), torch.sum(preds == labels))
                 total_data += len(labels)
@@ -354,6 +363,7 @@ def eval(model, dataset, device='cpu'):
         result['prec'] = precision
         result['rec'] = recall
         result['f0.5'] = f_half
+        result['loss'] = running_loss / total_data
 
     return result
 
