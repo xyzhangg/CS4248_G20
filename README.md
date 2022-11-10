@@ -19,10 +19,13 @@ Change working directory to `BART-GEC` and perform the following steps:
 ### Training
 
 Fine-tune the BART model with binarized data by running `train.sh`. Our trained BART model can be downloaded from this [link](https://drive.google.com/file/d/1fg80NjpbNcMrpQcInw-7DUn4z4N0CqiU/view?usp=sharing).
+The training data we use is in data/train and the development data we use is in data/valid.
 
 ### Data Translation
 
-Generate the output for the BEA-2019 and CoNLL-2014 test data by running `translate.sh [input] [output_dir] [gpu] [model_dir]`. The output generated from our trained BART model is included in the `data` folder.
+Generate the output for the BEA-2019 and CoNLL-2014 test data by running `translate.sh [input] [output_dir] [gpu] [model_dir]`.
+The test data we use is in data/test.
+The output generated from our trained BART model is included in the `data` folder (in data/output/dev-output/bart-dev.txt for development data, in data/output/test-output/bart-bea19-output.txt for BEA-2019 test data and in data/output/test-output/bart-conll-output.txt for CoNLL-2014 test data.
 
 
 ## BERT-fuse GED
@@ -42,10 +45,13 @@ Change working directory to `bert-gec/scripts` and perform the following steps:
 ### Training
 
 Fine-tune the BERT model by running `train.sh`. Our trained BERT model can be downloaded from this [link](https://drive.google.com/file/d/13UOliqDNL0rE94mRcX6bXjZga7eBXzOT/view?usp=sharing).
+The training data we use is in data/train and the development data we use is in data/valid.
 
 ### Data Translation
 
-Generate the output for the BEA-2019 and CoNLL-2014 test data by running `generate.sh [input] [output_dir] [gpu]`. The output generated from our trained BERT model is included in the `data` folder.
+Generate the output for the BEA-2019 and CoNLL-2014 test data by running `generate.sh [input] [output_dir] [gpu]`.
+The test data we use is in data/test.
+The output generated from our trained BERT model is included in the `data` folder.
 
 
 ## System Combination (ESC)
