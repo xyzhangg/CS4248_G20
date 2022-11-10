@@ -30,7 +30,7 @@ Generate the output for the BEA-2019 and CoNLL-2014 test data by running `transl
 The BERT model was taken and modified from [kanekomasahiro/bert-gec](https://github.com/kanekomasahiro/bert-gec)
 
 ### Requirements
-python >= 3.5, torch == 1.1.0, [bert-nmt](https://github.com/bert-nmt/bert-nmt)
+python >= 3.5, torch == 1.1.0, [bert-nmt](https://github.com/bert-nmt/bert-nmt), [subword](https://github.com/rsennrich/subword-nmt), [gec-pseudodata](https://github.com/butsugiri/gec-pseudodata)
 
 ### Preparation
 
