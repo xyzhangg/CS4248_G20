@@ -25,7 +25,7 @@ Fine-tune the BART model with binarized data by running `train.sh`.
 Generate the output for the BEA-2019 and CoNLL-2014 test data by running `translate.sh [input] [output_dir] [gpu] [model_dir]`. The output generated from our trained BART model is included in the `data` folder.
 
 
-## BERT
+## BERT-fuse GED
 
 The BERT model was taken and modified from [kanekomasahiro/bert-gec](https://github.com/kanekomasahiro/bert-gec)
 
@@ -45,7 +45,7 @@ Fine-tune the BERT model by running `train.sh`.
 Generate the output for the BEA-2019 and CoNLL-2014 test data by running `generate.sh [input] [output_dir] [gpu]`. The output generated from our trained BERT model is included in the `data` folder.
 
 
-## System Combination
+## System Combination (ESC)
 
 The system combination method was taken and modified from [nusnlp/esc](https://github.com/nusnlp/esc)
 
