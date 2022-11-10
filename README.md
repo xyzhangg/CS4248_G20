@@ -69,6 +69,11 @@ Get the F0.5 score for BEA-2019 by submitting the desired output file in a zip t
 For the CoNLL-2014 experiment, the my-conll-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].txt.
 Get the F0.5 score for CoNLL-2014 using M2 scorer with the desired output file.
 
+#### Models and outputs included:
+* base5_bart_conll.pt and base5_bart_conll.txt: Model and output for ESC trained on the 5 base models included and BART
+* base5_bart_pytorchLR_conll.pt base5_bart_pytorchLR_conll.txt: Model and output for ESC trained on the 5 base models included and BART, along with PyTorch's learning rate decay with gamma=0.98
+* base5_bart_selfimplementedLR_conll.pt and base5_bart_selfimplementedLR_conll.txt: Model and output for ESC trained on the 5 base models included and BART, along with our own learning rate decay and early stop implementation
+
 ### Retraining the experiments in the paper
 Run `export EXP_DIR=my-bea-exp` and `export EXP_DIR=my-conll-exp` for the BEA-2019 and CoNLL-2014 experiments respectively.
 1. Run the training by running `python run.py --train --data_dir $EXP_DIR/dev-text --m2_dir $EXP_DIR/dev-m2 --model_path $EXP_DIR/models --vocab_path $EXP_DIR/vocab.idx`.
