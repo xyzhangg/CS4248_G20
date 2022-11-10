@@ -18,7 +18,7 @@ Change working directory to `BART-GEC` and perform the following steps:
 
 ### Training
 
-Fine-tune the BART model with binarized data by running `train.sh`.
+Fine-tune the BART model with binarized data by running `train.sh`. Our trained BART model can be downloaded from this [link](https://drive.google.com/file/d/1fg80NjpbNcMrpQcInw-7DUn4z4N0CqiU/view?usp=sharing).
 
 ### Data Translation
 
@@ -41,7 +41,7 @@ Change working directory to `bert-gec/scripts` and perform the following steps:
 
 ### Training
 
-Fine-tune the BERT model by running `train.sh`.
+Fine-tune the BERT model by running `train.sh`. Our trained BERT model can be downloaded from this [link](https://drive.google.com/file/d/13UOliqDNL0rE94mRcX6bXjZga7eBXzOT/view?usp=sharing).
 
 ### Data Translation
 
