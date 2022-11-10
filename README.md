@@ -55,20 +55,9 @@ The system combination method is adapted from [nusnlp/esc](https://github.com/nu
 ### Requirements
 Refer [here](https://github.com/nusnlp/esc#installation) for instructions on installation and requirements.
 
-### Training
+### Retraining the experiments in the paper
 Run `export EXP_DIR=my-bea-exp` and `export EXP_DIR=my-conll-exp` for the BEA-2019 and CoNLL-2014 experiments respectively.
 1. Run the training by running `python run.py --train --data_dir $EXP_DIR/dev-text --m2_dir $EXP_DIR/dev-m2 --model_path $EXP_DIR/models --vocab_path $EXP_DIR/vocab.idx`.
-
-
-
-
-### Preparation
-
-1. Create a new g directory under `esc-main` and go inside it.
-2. Create a `dev-text` folder and put the base model's output on the dev data into the folder, along with the corresponding `source.txt` and `target.txt`.
-3. Create a `test-text` folder and put the base model's output on the test data into the folder, along with the corresponding `source.txt` and `target.txt`.
-4. Create a `models` and a `output` folder.
-
-The output that we generated for both BART and BERT models are included in the `data/output` folder 
-
-
+2. Get the prediction on the BEA-2019 development dataset by running `python run.py --test --data_dir $EXP_DIR/dev-text --m2_dir $EXP_DIR/dev-m2 --model_path $EXP_DIR/models/model.pt --vocab_path $EXP_DIR/vocab.idx --output_path $EXP_DIR/outputs/dev.out`.
+3. Get the F0.5 development score by running `errant_parallel -ori $EXP_DIR/dev-text/source.txt -cor $EXP_DIR/outputs/dev.out -out $EXP_DIR/outputs/dev.m2` followed by `errant_compare -ref bea-full-valid.m2 -hyp $EXP_DIR/outputs/dev.m2`.
+4. Get the test prediction by running `python run.py --test --data_dir $EXP_DIR/test-text --m2_dir $EXP_DIR/test-m2 --model_path $EXP_DIR/models/model.pt --vocab_path $EXP_DIR/vocab.idx --output_path $EXP_DIR/outputs/test.out`.
