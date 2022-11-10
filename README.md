@@ -64,8 +64,9 @@ Get the F0.5 score for CoNLL-2014 using M2 scorer with the desired output file.
 
 #### Models and outputs included:
 * base5_bart_conll.pt and base5_bart_conll.out: Model and output for ESC trained on the 5 base models included and BART
-* base5_bart_pytorchLR_conll.pt base5_bart_pytorchLR_conll.out: Model and output for ESC trained on the 5 base models included and BART, along with PyTorch's learning rate decay with gamma=0.98
+* base5_bart_pytorchLR_conll.pt and base5_bart_pytorchLR_conll.out: Model and output for ESC trained on the 5 base models included and BART, along with PyTorch's learning rate decay with gamma=0.98
 * base5_bart_selfimplementedLR_conll.pt and base5_bart_selfimplementedLR_conll.out: Model and output for ESC trained on the 5 base models included and BART, along with our own learning rate decay and early stop implementation
+* base6_bert_pytorchLR_bea.pt and base6_bert_pytorchLR_bea.out: Model and output for ESC trained on the 6 base models included and BERT, along with PyTorch's learning rate decay with gamma=0.99
 * base6_bert_bea.pt and base6_bert_bea.out: Model and output for ESC trained on the 6 base models included and BERT, along with our own learning rate decay and early stop implementation
 
 ### Retraining the experiments in the paper
