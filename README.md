@@ -52,6 +52,9 @@ Generate the output for the BEA-2019 and CoNLL-2014 test data by running `genera
 
 The system combination method was taken and modified from [nusnlp/esc](https://github.com/nusnlp/esc).
 
+### Requirements
+Refer [here](https://github.com/nusnlp/esc#installation) for instructions on installation and requirements.
+
 ### Preparation
 
 1. Create a new experiment directory under `esc-main` and go inside it.
