@@ -55,6 +55,11 @@ The system combination method is adapted from [nusnlp/esc](https://github.com/nu
 ### Requirements
 Refer [here](https://github.com/nusnlp/esc#installation) for instructions on installation and requirements.
 
+### Reproducing the paper's result
+For the BEA-2019 experiment, the my-bea-exp folder contains the trained model file in the models folder and the output in outputs/test.out. Get the F0.5 score for BEA-2019 by submitting the output file in a zip to CodaLab.
+For the CoNLL-2014 experiment, the my-conll-exp folder contains the trained model file in the models folder and the output in outputs/test.out. Get the F0.5 score for CoNLL-2014 using M2 scorer.
+
+
 ### Retraining the experiments in the paper
 Run `export EXP_DIR=my-bea-exp` and `export EXP_DIR=my-conll-exp` for the BEA-2019 and CoNLL-2014 experiments respectively.
 1. Run the training by running `python run.py --train --data_dir $EXP_DIR/dev-text --m2_dir $EXP_DIR/dev-m2 --model_path $EXP_DIR/models --vocab_path $EXP_DIR/vocab.idx`.
