@@ -2,7 +2,7 @@
 
 ## BART 
 
-The BART model was taken and modified from [Katsumata420/generic-pretrained-GEC/BART-GEC](https://github.com/Katsumata420/generic-pretrained-GEC/tree/master/BART-GEC).
+The BART model is adapted from [Katsumata420/generic-pretrained-GEC/BART-GEC](https://github.com/Katsumata420/generic-pretrained-GEC/tree/master/BART-GEC).
 
 ### Preparation
 
@@ -27,7 +27,7 @@ Generate the output for the BEA-2019 and CoNLL-2014 test data by running `transl
 
 ## BERT-fuse GED
 
-The BERT model was taken and modified from [kanekomasahiro/bert-gec](https://github.com/kanekomasahiro/bert-gec).
+The BERT model is adapted from [kanekomasahiro/bert-gec](https://github.com/kanekomasahiro/bert-gec).
 
 ### Requirements
 python >= 3.5, torch == 1.1.0, [bert-nmt](https://github.com/bert-nmt/bert-nmt), [subword](https://github.com/rsennrich/subword-nmt), [gec-pseudodata](https://github.com/butsugiri/gec-pseudodata)
@@ -50,7 +50,7 @@ Generate the output for the BEA-2019 and CoNLL-2014 test data by running `genera
 
 ## System Combination (ESC)
 
-The system combination method was taken and modified from [nusnlp/esc](https://github.com/nusnlp/esc).
+The system combination method is adapted from [nusnlp/esc](https://github.com/nusnlp/esc).
 
 ### Requirements
 Refer [here](https://github.com/nusnlp/esc#installation) for instructions on installation and requirements.
