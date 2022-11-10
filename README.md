@@ -63,10 +63,10 @@ For the CoNLL-2014 experiment, the my-conll-exp folder contains the trained mode
 Get the F0.5 score for CoNLL-2014 using M2 scorer with the output file.
 
 ### Reproducing our results
-For the BEA-2019 experiment, the my-bea-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].out.
+For the BEA-2019 experiment, the my-bea-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].txt.
 Get the F0.5 score for BEA-2019 by submitting the desired output file in a zip to CodaLab.
 
-For the CoNLL-2014 experiment, the my-conll-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].out.
+For the CoNLL-2014 experiment, the my-conll-exp folder also contains the best-performing trained models, as mentioned in our paper, in the models folder and the respective outputs in outputs/[model description].txt.
 Get the F0.5 score for CoNLL-2014 using M2 scorer with the desired output file.
 
 ### Retraining the experiments in the paper
