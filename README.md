@@ -6,7 +6,7 @@ The BART model was taken and modified from [Katsumata420/generic-pretrained-GEC/
 
 ### Preparation
 
-Change working directory to `BART-GEC` perform the following steps:
+Change working directory to `BART-GEC` and perform the following steps:
 
 1. Download pretrained BART model (`bart.large.tar.gz`) and related files (`encoder.json`, `vocab.bpe` and `dict.txt`).
     - `bart.large.tar.gz`: [url](https://dl.fbaipublicfiles.com/fairseq/models/bart.large.tar.gz)
@@ -31,7 +31,7 @@ The BERT model was taken and modified from [kanekomasahiro/bert-gec](https://git
 
 ### Preparation
 
-Change working directory to `bert-gec/scripts` perform the following steps:
+Change working directory to `bert-gec/scripts` and perform the following steps:
 
 1. Run `setup.sh`.
 2. Run `get_model.py` to download bert-base-cased model.
